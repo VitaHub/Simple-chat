@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-
+  before_action :redirect, only: [:new, :edit]
 
   def create
     build_resource(sign_up_params)
@@ -21,5 +21,9 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  private
 
+    def redirect
+      redirect_to root_path
+    end
 end 

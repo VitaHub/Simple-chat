@@ -10,16 +10,19 @@
 
   <body>
   	<div class="container">
-  		<div id="notice" class="row">
-  			<div class="col-md-6 col-md-offset-3">
-		      <% if notice %>
-		        <div class="alert alert-success"><%= notice %></div>
-		      <% end %>
-		      <% if alert %>
-		        <div class="alert alert-danger"><%= alert %></div>
-		      <% end %>
-		     </div>
-	    </div>
+      <%= render 'shared/header' if user_signed_in? %>
+      <% if notice || alert %>
+    		<div id="notice" class="row">
+    			<div class="col-md-6 col-md-offset-3">
+  		      <% if notice %>
+  		        <div class="alert alert-success"><%= notice %></div>
+  		      <% end %>
+  		      <% if alert %>
+  		        <div class="alert alert-danger"><%= alert %></div>
+  		      <% end %>
+  		     </div>
+  	    </div>
+      <% end %>
     	<%= yield %>
     </div>
   </body>

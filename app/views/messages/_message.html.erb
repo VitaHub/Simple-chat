@@ -1,0 +1,12 @@
+<tr class="message" sender='<%= message.sender_id %>'>
+	<td>
+		<div class="content">
+			<div class="sender">
+				<%= message.sender.name || message.sender.email %>
+			</div>
+			<div class="body">
+				<%= simple_format message.body %>
+			</div>
+		</div>
+	</td>
+</tr>

@@ -1,0 +1,10 @@
+<div class="user-item" user="<%= user.id %>">
+	<div class="status item">
+		<div class="offline"></div>
+	</div>
+	<div class="item">
+		<div class="name h4"><%= user.name || user.email %></div>
+	</div>
+	<%= link_to "Open chat", chat_rooms_path(recipient_id: user.id),
+					method: :post, class: "btn btn-default pull-right" %>
+</div>

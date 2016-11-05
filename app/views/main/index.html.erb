@@ -2,91 +2,25 @@
 	<% unless user_signed_in? %>
 		<div class="col-md-3 col-sm-4 col-md-offset-2 col-sm-offset-1"
 					id="sign-in">
-			<h2 class="text-center">Sign in</h2>
 
-				<div id="omniauth">
-					<%- if devise_mapping.omniauthable? %>
-					  <%- resource_class.omniauth_providers.each do |provider| %>
-							<%= link_to " Sign in via #{OmniAuth::Utils.camelize(provider)}",
-									omniauth_authorize_path(resource_name, provider),
-									class: "btn btn-primary" %>
-					  <% end -%>
-					<% end -%>
-				</div>
-
-				<br>
-
-				<%= form_for(resource, as: resource_name,
-											url: session_path(resource_name)) do |f| %>
-
-				  <div class="field">
-				    <%= f.email_field :email, autofocus: true, 
-				    		placeholder: "Email address", class: "form-control" %>
-				  </div>
-
-				  <div class="field">
-				    <%= f.password_field :password, autocomplete: "off",
-				    		placeholder: "Password", class: "form-control" %>
-				  </div>
-
-				  <div class="actions">
-				    <%= f.submit "Sign in via email", class: "btn btn-primary" %>
-				  </div>
-				<% end %>
+			<%= render 'shared/sign_in_form' %>
 
 		</div>
 		<div class="col-md-3 col-sm-4 col-md-offset-2 col-sm-offset-2" id="sign-up">
-			<h2 class="text-center">Sign up</h2>
-				<%  %>
 
-				<%= form_for(resource, as: resource_name,
-						url: registration_path(resource_name)) do |f| %>
-
-				  <div class="field">
-				    <%= f.text_field :name, autofocus: true, 
-				    		placeholder: "Your name", class: "form-control" %>
-				  </div>
-
-				  <div class="field">
-				    <%= f.email_field :email, autofocus: true, 
-				    		placeholder: "Email address", class: "form-control" %>
-				  </div>
-
-				  <div class="field">
-				    <%= f.password_field :password, autocomplete: "off",
-				    		placeholder: "Password", class: "form-control" %>
-				  </div>
-
-				  <div class="field">
-				    <%= f.password_field :password_confirmation, autocomplete: "off",
-				    		placeholder: "Password confirmation", class: "form-control" %>
-				  </div>
-
-				  <div class="actions">
-				    <%= f.submit "Sign up via email", class: "btn btn-primary" %>
-				  </div>
-				<% end %>
+			<%= render 'shared/sign_up_form' %>
 
 		</div>
 	<% else %>
-		<%= link_to 'Log out', destroy_user_session_path,
-				:method => :delete, id: "logout_link", class: "btn btn-default pull-right" %>
-		<span class="h4">You: <%= current_user.name || current_user.email %></span>
+
 		<h2 class="text-center">Other registered users:</h2>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<div class="list-group users_list" id="user-list">
-					<% @users.each do |user| %>
-
-						<div class="list-group-item">
-							<h4 class="list-group-item-heading">
-								<%= user.name || user.email %>
-							</h4>
-						</div>
-
-					<% end %>
+				<div id="chat-list">
+					<%= render @users %>
 				</div>
 			</div>
 		</div>
+
 	<% end %>
 </div>

@@ -15,3 +15,40 @@
 		margin-bottom: 10px;
 	}
 }
+
+#chat-list {
+	.user-item {
+		height: 60px;
+		border: 1px solid grey;
+		border-radius: 5px;
+		margin: 15px;
+		.item {
+			display: inline-block;
+			vertical-align: middle; 
+		}
+		a.btn {
+			margin-top: 12px;
+			margin-right: 20px;
+			border: 1px solid grey;
+			padding-right: 20px;
+			padding-left: 20px; 
+		}
+	}
+
+	.status {
+		margin: 15px;
+		div {
+			height: 30px;
+			width: 30px;
+			border-radius: 15px;
+			border: 1px solid green;
+		}
+		.online {
+			background-color: green;
+		}
+
+		.offline {
+			background-color: none;
+		}
+	}
+}

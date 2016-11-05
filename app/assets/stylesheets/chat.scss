@@ -1,0 +1,45 @@
+#chat-room {
+	#new_message {
+		#message_body {
+			resize: none;
+			border-color: black;
+		}
+		.btn {
+			width: 100%;
+			margin-top: 1px;
+			border-color: black;
+		}
+	}
+
+	#messages {
+		overflow-y: auto;
+		border: 2px solid black;
+		border-radius: 5px;
+		margin-bottom: 20px;
+		height: calc(100vh - 300px);
+		table {
+			width: 100%; 
+			word-wrap: break-word;
+    	overflow-wrap: break-word;
+    	table-layout: fixed;
+			.content {
+				padding: 0px 10px 10px;
+				.body {
+					border: 1px solid grey;
+					padding: 10px;
+					p {
+						margin: 0;
+					}
+				}
+			}
+			.mine {
+				.sender {
+					text-align: right;
+				}
+				.body {
+					text-align: right;
+				}
+			}
+		}
+	}
+}

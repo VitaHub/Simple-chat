@@ -1,0 +1,21 @@
+<div id="chat-room">
+	<h2 class="text-center">Chat</h2>
+	<h4 class="text-center"><%= current_user.name || current_user.email %> 
+			To: <%= @interlocutor.name || @interlocutor.email %></h4>
+
+	<div id="messages" data-me="<%= current_user.id %>">
+		<table>
+			<tbody>
+				<%= render @messages %>
+			</tbody>
+		</table>
+	</div>
+
+	<%= form_for [@chat_room, @message] do |f| %>
+		<%= f.hidden_field :sender_id, value: current_user.id %>
+		<%= f.hidden_field :recipient_id, value: @interlocutor.id %>
+		<%= f.hidden_field :chat_room_id, value: params[:id] %>
+	 	<%= f.text_area :body, class: "form-control", placeholder: "Write your message hear..." %>
+		<%= f.submit "Send", class: "btn btn-default" %>
+	<% end %>
+</div>

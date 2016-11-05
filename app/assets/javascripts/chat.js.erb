@@ -1,0 +1,15 @@
+var ready = function() {
+	var me = $('#messages').data('me');
+	$('tr[sender='+ me +']').removeClass('mine').addClass('mine');
+	$('#chat-room #messages').scrollTop($('#chat-room #messages table').height());
+	$('#chat-room #message_body').focus();
+	$('#chat-room .new_message').on("ajax:success", function(e, data, status, xhr) {
+		$('#chat-room #message_body').val('');
+	});
+	$("#chat-room #message_body").keydown(function(e){ 
+		if(e.which == 13 /*&& e.ctrlKey*/){ 
+			$('#chat-room #new_message').submit(); 
+		}; 
+	});
+};
+$(document).ready(ready);

@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  has_many :sent_messages, 
+            class_name: 'Message', 
+            foreign_key: 'sender_id' 
+  has_many :messages, foreign_key: 'recipient_id'
+  has_and_belongs_to_many :chat_rooms
   devise 	:database_authenticatable, :registerable, 
   				:validatable, :confirmable, :omniauthable
 

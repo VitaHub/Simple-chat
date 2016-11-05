@@ -23,3 +23,16 @@
 		margin-top: 25px;
 	}
 }
+
+#header {
+	height: 50px;
+	padding-top: 10px;
+	.btn {
+		margin-right: 50px;
+	}
+	a.h2 {
+		margin-left: 50px;
+		text-decoration: none;
+		cursor: pointer;
+	}
+}
