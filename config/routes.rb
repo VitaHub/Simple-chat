@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 	end
 	get "*path", :to => redirect('/')
 
+	mount ActionCable.server, at: '/cable'
+
 end

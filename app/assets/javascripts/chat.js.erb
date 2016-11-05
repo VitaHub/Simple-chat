@@ -8,6 +8,7 @@ var ready = function() {
 	});
 	$("#chat-room #message_body").keydown(function(e){ 
 		if(e.which == 13 /*&& e.ctrlKey*/){ 
+			e.preventDefault();
 			$('#chat-room #new_message').submit(); 
 		}; 
 	});
