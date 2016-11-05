@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>It2Chat</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<div class="container">
+  		<div id="notice" class="row">
+  			<div class="col-md-6 col-md-offset-3">
+		      <% if notice %>
+		        <div class="alert alert-success"><%= notice %></div>
+		      <% end %>
+		      <% if alert %>
+		        <div class="alert alert-danger"><%= alert %></div>
+		      <% end %>
+		     </div>
+	    </div>
+    	<%= yield %>
+    </div>
+  </body>
+</html>
