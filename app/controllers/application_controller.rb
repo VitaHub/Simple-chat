@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
 		def user_activity
 		  current_user.try :touch
 		  update_status
-		  Thread.new {
-		  	sleep 301
-		  	update_status
-		  }
+		  # Thread.new {
+		  # 	sleep 301
+		  # 	update_status
+		  # }
 		end
 
   	def update_status
