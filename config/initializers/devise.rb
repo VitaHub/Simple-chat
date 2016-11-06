@@ -4,8 +4,8 @@ Devise.setup do |config|
   config.warden do |manager|
     manager.failure_app = CustomFailure
   end
-  config.omniauth :vkontakte, "5709136", "SgXaRSXS4A9cN8JzN44h", scope: "email"
-  config.omniauth :facebook, "337123823310561", "5ec614d4d836f57d11eb4becf42b73d1"
+  config.omniauth :vkontakte, ENV["vk_key"], ENV["vk_secret"], scope: "email"
+  config.omniauth :facebook, ENV["fb_key"], ENV["fb_secret"]
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

@@ -6,8 +6,10 @@ var ready = function() {
 				room: room }, {
 
 		  received: function(data) {
-		  	$('#messages tbody').append(this.renderMessage(data));
-		  	$("#messages").scrollTop($('#messages table').height());
+		  	if (data.message != null) {
+			  	$('#messages tbody').append(this.renderMessage(data));
+			  	$("#messages").scrollTop($('#messages table').height());
+			  };
 		  },
 		  	// Шаблон сообщения
 		  renderMessage: function(data) {
@@ -28,6 +30,16 @@ var ready = function() {
 		  }
 		});
 	};
+
+	if ($('#chat-list').val() != null ) {
+		App.chat = App.cable.subscriptions.create({channel: 'ChatChannel'},{
+			received: function(data) {
+		  	if (data.update_list == true) {
+		  		$('div[user='+ data.user +']').removeClass().addClass(data.status);
+		  	}
+			}
+		});
+	}
 };
 
-$(document).ready(ready);
+$(document).on('turbolinks:load', ready);
