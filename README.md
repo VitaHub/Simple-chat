@@ -1,24 +1,10 @@
-# README
+## Simple chat
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ - аутентификация через email / vk / facebook;
+ - список пользователей с отображением имени/адреса электронной почты и статуса(онлайн/оффлайн);
+ - текстовый чат 1 на 1.
 
-Things you may want to cover:
+### Краткое описание
+Веб-приложение разработано на Ruby on Rails 5.0.0.1. Аутентификация реализована с помощью библиотеки devise. Сообщения в чате отправляются и приходят без перезагружки страницы (использован Action Cable). Статус пользователя (онлайн/оффлайн) обновляется так же без перезагрузки страницы. Пользователь считается оффлайн, если нажал Log out или не проявлял на сайте активность более пяти минут.
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
